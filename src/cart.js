@@ -3,7 +3,7 @@ export function subtotal(items) {
 }
 
 export function formatPrice(cents) {
-  return `$${(cents / 100).toFixed(2)}`;
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
 }
 
 export function applyDiscount(cents, code) {
