@@ -5,3 +5,9 @@ export function subtotal(items) {
 export function formatPrice(cents) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
 }
+
+export function applyDiscount(cents, code) {
+  const rates = { SAVE10: 0.1, SAVE25: 0.25 };
+  const rate = rates[code] ?? 0;
+  return Math.round(cents * (1 - rate));
+}
