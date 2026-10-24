@@ -6,6 +6,9 @@ import { PlanetPage } from './pages/planet.jsx';
 import { NotFoundPage } from './pages/not-found.jsx';
 import { findPlanet, planets } from './planets.js';
 
+// Vite's `base` (e.g. `/_dazl/port/5181/` when the preview is served under a path prefix, `/` otherwise).
+const basename = import.meta.env.BASE_URL.replace(/\/+$/, '') || '/';
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -26,4 +29,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+], { basename });
